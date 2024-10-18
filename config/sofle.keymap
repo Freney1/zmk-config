@@ -26,21 +26,11 @@
             then-layer = <3>;
         };
     };
+
     sensors: sensors {
-            compatible = "zmk,keymap-sensors";
-            sensors = <&left_encoder>;
-            triggers-per-rotation = <40>;
-        };
-
-    behaviors {
-        EncoderTrigger: EncoderTrigger {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "ENCODERTRIGGER";
-            #sensor-binding-cells = <0>;
-            bindings = <&kp C_VOLUME_UP>, <&kp C_VOLUME_DOWN>;
-
-            tap-ms = <1>;
-        };
+        compatible = "zmk,keymap-sensors";
+        sensors = <&left_encoder>;
+        triggers-per-rotation = <40>;
     };
 
     keymap {
@@ -64,7 +54,9 @@
                         &kp LGUI  &kp LALT  &mo 1   &kp SPACE  &kp HOME      &kp END  &kp ENTER  &mo 2   &kp RALT   &kp RGUI
             >;
 
-            sensor-bindings = <&EncoderTrigger>, <&inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp PG_UP PG_DN>;
         };
 
         lower_layer {
