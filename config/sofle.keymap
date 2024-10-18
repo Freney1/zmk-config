@@ -26,6 +26,11 @@
             then-layer = <3>;
         };
     };
+    sensors: sensors {
+            compatible = "zmk,keymap-sensors";
+            sensors = <&left_encoder>;
+            triggers-per-rotation = <20>;
+        };
 
     behaviors {
         EncoderTrigger: EncoderTrigger {
